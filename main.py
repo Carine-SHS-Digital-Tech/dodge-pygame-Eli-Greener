@@ -5,19 +5,19 @@ import random
 
 # Define Classes (sprites) here
 class FallingObject(pygame.sprite.Sprite):
-    def _init_(self):
-        pygame.sprite.Sprite._init_(self)
-        self.timecreated = pygame.time.get.ticks()
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.timecreated = pygame.time.get_ticks()
         self.image = pygame.Surface([30,30])
-        self.image.set_colourkey(black)
+        self.image.set_colorkey(black)
 
-        self.rect = self.image.get.rect()
+        self.rect = self.image.get_rect()
         self.rect.x = random.randint(0,670)
         self.rect.y = 0
 
     def setImage(self,graphicSelected):
         fallingObjectImage = pygame.image.load(graphicSelected)
-        self.image.blit(fallingObjectsImage,(0,0))
+        self.image.blit(fallingObjectImage,(0,0))
 pygame.init()                               # Pygame is initialised (starts running)
 
 screen = pygame.display.set_mode([700,500]) # Set the width and height of the screen [width,height]
